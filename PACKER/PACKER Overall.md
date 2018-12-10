@@ -1,6 +1,8 @@
 # PACKER OVERALL
 
-[Docs](https://www.packer.io/intro/index.html)
+[Official Docs](https://www.packer.io/intro/index.html)
+
+[Medium](https://medium.com/devopslinks/build-your-own-ec2-machine-images-with-packer-ansible-on-aws-for-immutable-aws-deployments-f7dbe81934a1)
 
 
 

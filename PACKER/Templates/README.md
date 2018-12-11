@@ -86,7 +86,7 @@ The builder will create temporary keypairs, security group rules, etc. that prov
   
   - **tags** (object of key/value strings) - Tags applied to the AMI and relevant snapshots. This is a template engine, see Build template data for more information.
 
-
+  - etc (see link)
 
 
 

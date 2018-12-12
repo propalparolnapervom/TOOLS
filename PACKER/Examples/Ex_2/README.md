@@ -2,7 +2,7 @@
 
 Run simplest AMI creation:
 - there's a source AMI  
-- create a new AMI (with `traceroute` installed via `sh` script)
+- create a new AMI (with `traceroute` installed via `Ansible`)
 
 ## RUN
 

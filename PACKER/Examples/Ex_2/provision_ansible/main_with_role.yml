@@ -1,0 +1,7 @@
+-
+  name: Make sure traceroute and httpd packages are installed
+  become: yes
+  become_user: root
+  hosts: all
+  roles: 
+      - random_role_name

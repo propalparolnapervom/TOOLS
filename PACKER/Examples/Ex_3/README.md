@@ -3,6 +3,18 @@
 Run simplest AMI creation:
 - there's a source AMI  
 - create a new AMI (with latest versions of `traceroute` and `httpd` installed via `Ansible`)
+- run a `Goss` test to make sure that `traceroute` and `httpd` were really installed
+
+## PREPARE GOSS
+
+You need goss to get the packer build to run.
+
+Folow the instuctions on:
+
+[https://github.com/YaleUniversity/packer-provisioner-goss](https://github.com/YaleUniversity/packer-provisioner-goss)
+
+Remember to make the binary executable!
+
 
 ## RUN
 

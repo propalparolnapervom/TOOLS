@@ -27,3 +27,12 @@ This will add a test for a resource. Non existent resources will add a test to e
 ```
 goss add file file.txt
 ```
+
+## validate
+
+### Examples
+
+When `goss.yaml` file in current dir
+```
+goss validate
+```

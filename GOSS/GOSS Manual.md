@@ -22,3 +22,8 @@ Commands are the actions goss can run.
 
 This will add a test for a resource. Non existent resources will add a test to ensure they do not exist on the system. A sub-command resource type has to be provided when running add.
 
+### Examples
+
+```
+goss add file file.txt
+```

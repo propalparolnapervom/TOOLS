@@ -1,0 +1,34 @@
+#####################
+## OS updating steps 
+##  (Red Hat)
+#####################
+
+- name: OS updating
+  yum:
+    name: "*"
+    state: latest
+
+
+#####################
+## OS rebooting after update
+##  (Red Hat)
+#####################
+
+- name: OS reboot
+  # "sleep" to prevent the connection from breaking
+  shell: "sleep 5 && reboot"      
+  # wait for up to this value  
+  async: 1
+  # how frequently to poll for status
+  poll: 0
+
+- name: wait for 15 sec for the server to come back
+  pause:
+   seconds: 15
+
+- name: connect back to the server as soon as it can make a connection
+  wait_for_connection:
+    connect_timeout: 20
+    sleep: 5
+    delay: 5
+    timeout: 60

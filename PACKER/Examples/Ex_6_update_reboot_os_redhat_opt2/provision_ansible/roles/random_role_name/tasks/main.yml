@@ -1,0 +1,22 @@
+#Tasks defined for main_with_role.yml file
+
+
+#############
+## Update OS
+#############
+- name: Launch OS updating and reboot
+  include: update_os.yml
+
+-
+  name: Make sure traceroute is installed, update if not latest version
+  yum:
+    name: traceroute
+    state: latest
+
+-
+  name: Make sure httpd is installed, update if not latest version
+  yum:
+    name: httpd
+    state: latest
+
+

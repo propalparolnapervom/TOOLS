@@ -1,0 +1,9 @@
+#####################
+## OS updating steps 
+##  (Red Hat)
+#####################
+
+- name: OS updating
+  yum:
+    name: "*"
+    state: latest

@@ -1,7 +1,7 @@
 {
   "variables": {
-    "aws_access_key": "AKIAJ5VZY5Z5LXW4C4TA",
-    "aws_secret_key": "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",
+    "aws_access_key": "",
+    "aws_secret_key": "",
     "subnet_id": "subnet-095da6e17b8a374ee",
     "vpc_id": "vpc-0a3ee34400021a65e"
   },

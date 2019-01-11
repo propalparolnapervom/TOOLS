@@ -1,0 +1,45 @@
+#####################
+## OS updating steps 
+##  (Ubuntu)
+#####################
+
+
+- name: check updates for packages
+  shell: apt update
+
+- name: list packages for updates
+  shell: apt list --upgradable | grep -v "Listing" | awk '{print $1}' FS=/
+  changed_when: updates.stdout_lines | length > 0
+  args:
+    warn: false
+  register: updates
+
+- name: display count of found packages for updates
+  debug:
+    msg: "Found {{ updates.stdout_lines | length }} packages to be updated: {{ updates.stdout }}"
+
+  # If there are packages for updates, update OS
+- when: updates.stdout_lines | length > 0
+  block:
+    - name: OS updates installing
+      apt:
+        update_cache: yes
+        upgrade: dist
+      # If it's necessary after OS update, reboot the server
+    - name: rebooting the server ...
+      shell: sleep 10 && /sbin/shutdown -r now 'Rebooting box to update system libs/kernel as needed' 
+      args:
+        # Existing of this file means OS needs reboot
+        # So if the file does not exist, the shutdown command will not be run
+        removes: /var/run/reboot-required
+      async: 300
+      poll: 0
+      ignore_errors: true
+    - name: waiting for server to come back after reboot ...
+      wait_for_connection:
+        timeout: 120
+        delay: 60
+      register: reboot_result
+    - name: reboot time
+      debug:
+        msg: "The system rebooted in {{ reboot_result.elapsed }} seconds."

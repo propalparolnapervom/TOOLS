@@ -5,7 +5,7 @@
 ## Update OS
 #############
 - name: Launch OS updating and reboot
-  include: update_os.yml
+  include: update_os_redhat.yml
 
 -
   name: Make sure traceroute is installed, update if not latest version

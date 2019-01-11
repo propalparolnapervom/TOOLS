@@ -10,17 +10,19 @@
     warn: false
   register: updates
 
-- name: display count
+- name: display count of found packages for updates
   debug:
-    msg: "Found {{ updates.stdout_lines | length }} packages to be updated:\n\n{{ updates.stdout }}"
+    msg: "Found {{ updates.stdout_lines | length }} packages to be updated: {{ updates.stdout }}"
 
+  # If there are packages for updates, update OS
 - when: updates.stdout_lines | length > 0
   block:
-    - name: install updates using yum
+    - name: OS updates installing
       yum:
         name: "*"
         state: latest
-    - name: install yum-utils
+      # to be sure `needs-restarting` utility will be available
+    - name: yum-utils installing
       package:
         name: yum-utils
     - name: check if reboot is required
@@ -29,21 +31,20 @@
       register: reboot_required
       changed_when: false
 
+  # Reboot the server if it's required after OS update  
 - when: updates.stdout_lines | length > 0 and reboot_required.rc != 0
   block:
-    - name: reboot the server if required
+    - name: reboot the server
       shell: sleep 3; reboot
       ignore_errors: true
       changed_when: false
       async: 1
-      poll: 0
-      
+      poll: 0     
     - name: wait for server to come back after reboot
       wait_for_connection:
-        timeout: 60
-        delay: 20
+        timeout: 120
+        delay: 60
       register: reboot_result
-
     - name: reboot time
       debug:
         msg: "The system rebooted in {{ reboot_result.elapsed }} seconds."

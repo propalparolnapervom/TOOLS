@@ -1,11 +1,11 @@
-[Example 2](https://luktom.net/en/e1497-how-to-update-centos-rhel-using-ansible)
+[Example 3](https://www.cyberciti.biz/faq/ansible-reboot-debian-ubuntu-linux-for-kernel-update-waitforit/)
 
 ## WHAT
 
 Run simplest AMI creation:
 - there's a source AMI  
-- create a new AMI with: 
-    - latest OS updates (Red Hat) installed via `Ansible` (reboot the server if needed)
+- create a new AMI with:
+    - latest OS updates (Ubuntu) installed via `Ansible` (reboot the server if needed)
     - latest versions of `traceroute` and `httpd` installed via `Ansible`
 
 ## RUN

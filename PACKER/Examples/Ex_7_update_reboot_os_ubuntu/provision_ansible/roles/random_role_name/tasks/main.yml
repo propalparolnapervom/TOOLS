@@ -1,0 +1,12 @@
+#Tasks defined for main_with_role.yml file
+
+
+#############
+## Update OS
+#############
+- name: Launch OS updating and reboot
+  include: update_os_ubuntu.yml
+
+
+
+

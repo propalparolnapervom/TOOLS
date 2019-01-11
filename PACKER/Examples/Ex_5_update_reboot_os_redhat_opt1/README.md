@@ -4,8 +4,8 @@
 
 Run simplest AMI creation:
 - there's a source AMI  
-- create a new AMI with 
-    - latest OS updates installed via `Ansible` (no reboots during/after updates)
+- create a new AMI with:
+    - latest OS updates (Red Hat) installed via `Ansible` (reboot the server if needed)
     - latest versions of `traceroute` and `httpd` installed via `Ansible`
 
 ## RUN

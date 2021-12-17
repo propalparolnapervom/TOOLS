@@ -81,7 +81,7 @@ Certificate:
 
 Show a public key that is contained in a certificate
 ```
-openssl x509 -pubkey -noout < real.crt
+openssl x509 -pubkey -noout -in real.crt
 ```
 
 Certificate chain

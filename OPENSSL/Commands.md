@@ -79,6 +79,11 @@ Certificate:
         ...
 ```
 
+Show a public key that is contained in a certificate
+```
+openssl x509 -pubkey -noout < real.crt
+```
+
 Certificate chain
 
 ```
@@ -103,6 +108,12 @@ What is contained in a private key
 ```
 openssl rsa -in privateKey.key -check
 ```
+
+Which public key is in the certificate
+```
+openssl x509 -pubkey -noout < real.crt
+```
+
 
 ### Generate
 
